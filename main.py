@@ -21,7 +21,15 @@ for index, row in df.iterrows():
                         # for blue its 0, 0, 254
     pdf.cell(w=0, h=12, txt=row["Topic"], align="L", ln=1)
         #width, height, ln=breakline
-    pdf.line(10, 21, 200, 21)
+
+    for y in range(20, 298, 10):
+    # starts from 20 till 298 with 10mm spacing in between
+        pdf.line(10, y, 200, y)
+    # 10, 200 are x values aka horizontal
+    # y has step values from 10 in the range above
+
+
+            #pdf.line(10, 21, 200, 21) we remove this due to above code that writes new lines to not overlap
             #x1,  y1,  x2,  y2 line values, which are 2D line distances of trajectory
 
     pdf.ln(265)
@@ -43,6 +51,9 @@ for index, row in df.iterrows():
     # we create a nested for loop to generate
     # the nr of pages mentioned in the pages column
     # from csv for each topic, we also substract 1 for the correct amount needed
+
+        for y in range(20, 298, 10):
+            pdf.line(10, y, 200, y)
 
 
 # pdf.set_font(family="Times", size=10)
