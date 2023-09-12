@@ -21,6 +21,13 @@ for index, row in df.iterrows():
     pdf.line(10, 21, 200, 21)
             #x1,  y1,  x2,  y2 line values, which are 2D line distances of trajectory
 
+    for i in range(row["Pages"]-1):
+        pdf.add_page()
+
+    # we create a nested for loop to generate
+    # the nr of pages mentioned in the pages column
+    # from csv for each topic, we also substract 1 for the correct amount needed
+
 
 # pdf.set_font(family="Times", size=10)
 # we removed style="B" due to preference
